@@ -1,0 +1,40 @@
+<p>Esta es mi pagina Principal</p>
+
+<p class="title">
+  Componente Cronometro
+</p>
+
+<button class="btn btn-primary me-2"
+        (click)="cronometroPrimero.play()">
+  Iniciar Primer Cronómetro Padre desde html
+</button>
+
+<button class="btn btn-danger me-2"
+        (click)="iniciarCronometro()">
+  Iniciar Segundo Cronómetro Padre desde ts
+</button>
+
+<button class="btn btn-primary me-2"
+        (click)="iniciarTodosCronometro()">
+  Iniciar todos los Cronómetros desde Padre
+</button>
+
+<app-cronometro #cronometroPrimero
+                [minutos]="0"
+                [segundos]="0"
+                (marcarVuelta)="aniadirVuelta($event)"
+                (detener)="limpiarVueltas()">
+</app-cronometro>
+
+<app-cronometro #cronometroSegundo
+                [minutos]="5"
+                [segundos]="10"
+                (marcarVuelta)="aniadirVuelta($event)"
+                (detener)="limpiarVueltas()">
+</app-cronometro>
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let recorrido of timeStamps">
+    <span>Timer: </span>{{recorrido * 1000 | date:'mm:ss'}}
+  </li>
+</ul>
