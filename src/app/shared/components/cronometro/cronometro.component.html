@@ -1,0 +1,22 @@
+<p>Hola este es mi componente codigo html cronómetro!</p>
+
+<div class="row">
+  <div class="col-md-4">
+    <span>{{segundosAcumulador * 1000 | date:'mm:ss'}}</span>
+  </div>
+  <p></p>
+  <div class="col-md-4">
+    <button class="fa fa-play"
+            (click)="play()" [disabled]="ctrlEjecuta">
+    </button>
+    <button class="fa fa-pause"
+            (click)="pausar()">
+    </button>
+    <button class="fa fa-stop"
+            (click)="stop()">
+    </button>
+    <button class="fa fa-stopwatch"
+            (click)="registerTime()">
+    </button>
+  </div>
+</div>
