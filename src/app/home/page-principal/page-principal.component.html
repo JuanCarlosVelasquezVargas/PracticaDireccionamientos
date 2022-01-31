@@ -22,14 +22,14 @@
 <app-cronometro #cronometroPrimero
                 [minutos]="0"
                 [segundos]="0"
-                (marcarVuelta)="aniadirVuelta($event)"
+                (marcarVuelta)="agregarVuelta($event)"
                 (detener)="limpiarVueltas()">
 </app-cronometro>
 
 <app-cronometro #cronometroSegundo
                 [minutos]="5"
                 [segundos]="10"
-                (marcarVuelta)="aniadirVuelta($event)"
+                (marcarVuelta)="agregarVuelta($event)"
                 (detener)="limpiarVueltas()">
 </app-cronometro>
 

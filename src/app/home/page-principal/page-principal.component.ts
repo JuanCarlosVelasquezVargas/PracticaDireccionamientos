@@ -15,7 +15,7 @@ export class PagePrincipalComponent implements OnInit {
 
   timeStamps: number[] = [];
 
-  aniadirVuelta($event: number) {
+  agregarVuelta($event: number) {
     this.timeStamps.unshift($event);
   }
 

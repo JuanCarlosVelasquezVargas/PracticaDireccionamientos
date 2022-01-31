@@ -3,17 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { CatalogoRoutingModule } from './catalogo-routing.module';
 import { TipoCuentaComponent } from './tipo-cuenta/tipo-cuenta.component';
-import { CronometroComponent } from './cronometro/cronometro.component';
+import {SharedModule} from "../shared/shared.module";
+import { MovimientosCuentaComponent } from './movimientos-cuenta/movimientos-cuenta.component';
 
 
 @NgModule({
   declarations: [
     TipoCuentaComponent,
-    CronometroComponent
+    MovimientosCuentaComponent
   ],
   imports: [
     CommonModule,
-    CatalogoRoutingModule
+    CatalogoRoutingModule,
+    SharedModule
   ]
 })
 export class CatalogoModule { }

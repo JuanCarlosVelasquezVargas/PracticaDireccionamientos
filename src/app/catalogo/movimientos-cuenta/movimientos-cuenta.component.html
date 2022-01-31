@@ -1,0 +1,37 @@
+<p>movimientos-cuenta, card con proyección, componente acumulador</p>
+
+<app-card-especial [tittleCardPadre]="'Titulo de mi Tarjeta desde el Padre'"
+                   cssClass="card text-black bg-secondary">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <button class="btn btn-primary" type="button" (click)="onClickCard()" >
+        Submit
+      </button>
+    </div>
+  </div>
+
+  <p class="title">
+    Componente Acumulador
+  </p>
+
+  <app-acumulador [contador]=" 150 "
+                  nombre="Acm 1"
+                  [acm]="3"
+                  (evtClick)="insertLogAcumulador($event)"
+  ></app-acumulador>
+
+  <app-acumulador [contador]=" 150 "
+                  nombre="Acm 2"
+                  [acm]="3"
+                  (evtClick)="insertLogAcumulador($event)"
+  ></app-acumulador>
+
+  <ul class="list-group">
+    <li class="list-group-item"
+        *ngFor="let log of logAcumulador">
+      {{ log }}
+    </li>
+  </ul>
+</app-card-especial>
