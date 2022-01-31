@@ -6,12 +6,18 @@ import {AcumuladorComponent} from "./components/acumulador/acumulador.component"
 import {CronometroComponent} from "./components/cronometro/cronometro.component";
 import { CardComponent } from './components/card/card.component';
 import {CardEspecialComponent} from "./components/card-especial/card-especial.component";
+import {BtnLoadingDirective} from "./directives/btn-loading.directive";
+import {BtnLoadingRenderDirective} from "./directives/btn-loading-render.directive";
+import {BtnLoadingPropertyDirective} from "./directives/btn-loading-property.directive";
 
 const componentes = [
   AcumuladorComponent,
   CronometroComponent,
   CardComponent,
-  CardEspecialComponent
+  CardEspecialComponent,
+  BtnLoadingDirective,
+  BtnLoadingRenderDirective,
+  BtnLoadingPropertyDirective
 ]
 
 @NgModule({

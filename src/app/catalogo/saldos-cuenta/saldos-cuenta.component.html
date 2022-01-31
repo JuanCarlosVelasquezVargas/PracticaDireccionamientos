@@ -1,0 +1,29 @@
+<p>saldos-cuenta, directivas</p>
+
+<app-card-especial [tittleCardPadre]="'Directiva'"
+                   cssClass="card text-black bg-secondary">
+  <div class="card">
+    <div class="card-body">
+
+      <button btnLoading>
+        Presionar
+      </button>
+
+      <br><br>
+
+      <button class="btn" btnLoadingRender>
+        Presionar Render
+      </button>
+
+      <br><br>
+
+      <button class="btn" btnLoadingProperty [textInput]="'Listo para el Loading'">
+        Presionar Property
+      </button>
+
+    </div>
+  </div>
+
+</app-card-especial>
+
+
