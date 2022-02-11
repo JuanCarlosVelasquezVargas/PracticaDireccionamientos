@@ -3,19 +3,44 @@
     <div class="col-lg-8 offset-lg-2">
       <div class="card">
         <div class="card-body">
-          <h3 class="titulo">MIS CUENTAS</h3>
+          <h3 class="titulo">TRANSFERENCIAS DIRECTAS</h3>
         </div>
       </div>
     </div>
   </div>
 
   <div class="row mt-4">
-    <div class="col-lg-6">
+    <div class="col-lg-12">
       <div class="card">
         <div class="card-body">
+
           <h5 class="titulo">{{accion | uppercase}} TRANSFERENCIA</h5>
 
           <form [formGroup]="form" (ngSubmit)="guardarTransferencias()">
+
+            <div class="row">
+              <div class="col-lg-7">
+                <div class="input-group input-group-lg mb-3">
+                  <span class="input-group-text">
+                    <i class="fas fa-credit-card"
+                       [class.green-icon]="this.form.get('saldoContable')?.valid"
+                       [class.red-icon]="this.form.get('saldoContable')?.invalid && this.form.get('saldoContable')?.touched"></i>
+                  </span>
+                  <input formControlName="saldoContable" type="text"class="form-control" placeholder="$ Monto.">
+                </div>
+              </div>
+              <div class="col-lg-5">
+                <div class="input-group input-group-lg mb-3">
+                  <span class="input-group-text">
+                    <i class="fas fa-credit-card"
+                       [class.green-icon]="this.form.get('saldoUsable')?.valid"
+                       [class.red-icon]="this.form.get('saldoUsable')?.invalid && this.form.get('saldoUsable')?.touched"></i>
+                  </span>
+                  <input formControlName="saldoUsable" type="text"class="form-control" placeholder="ctvs.">
+                </div>
+              </div>
+            </div>
+
             <div class="input-group input-group-lg mb-3">
               <span class="input-group-text">
                 <i class="fas fa-user"
@@ -23,7 +48,7 @@
                    [class.red-icon]="this.form.get('tipoCuenta')?.invalid && this.form.get('tipoCuenta')?.touched">
                 </i>
               </span>
-              <input formControlName="tipoCuenta" type="text" class="form-control" placeholder="Tipo Cuenta">
+              <input formControlName="tipoCuenta" type="text" class="form-control" placeholder="Beneficiario">
             </div>
 
             <div class="input-group input-group-lg mb-3">
@@ -36,66 +61,14 @@
               <input formControlName="numeroCuenta" type="text" class="form-control" placeholder="Numero Cuenta" maxlength="10">
             </div>
 
-            <div class="row">
-              <div class="col-lg-7">
-                <div class="input-group input-group-lg mb-3">
-                  <span class="input-group-text">
-                    <i class="fas fa-credit-card"
-                       [class.green-icon]="this.form.get('saldoContable')?.valid"
-                       [class.red-icon]="this.form.get('saldoContable')?.invalid && this.form.get('saldoContable')?.touched"></i>
-                  </span>
-                  <input formControlName="saldoContable" type="text"class="form-control" placeholder="Titular">
-                </div>
-              </div>
-              <div class="col-lg-5">
-                <div class="input-group input-group-lg mb-3">
-                  <span class="input-group-text">
-                    <i class="fas fa-credit-card"
-                       [class.green-icon]="this.form.get('saldoUsable')?.valid"
-                       [class.red-icon]="this.form.get('saldoUsable')?.invalid && this.form.get('saldoUsable')?.touched"></i>
-                  </span>
-                  <input formControlName="saldoUsable" type="text"class="form-control" placeholder="Titular">
-                </div>
-              </div>
-            </div>
+
             <div class="d-grid gap-2">
-              <button [disabled]="this.form.invalid" type="submit" class="btn btn-success btn-lg">
-                <i class="fas fa-database"></i>&nbsp; Aceptar</button>
+              <button [disabled]="this.form.invalid" type="submit" class="btn btn-warning btn-lg">
+                <i class="fas fa-database"></i>&nbsp; Transferir</button>
             </div>
 
           </form>
 
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="titulo">LISTADO DE MOVIMIENTOS</h5>
-          <table class="table">
-            <tbody>
-              <tr *ngFor="let cuenta of listaCuentas; let i = index">
-                <td>
-                  {{ cuenta.tipoCuenta }}
-                </td>
-                <td>
-                  {{ cuenta.numeroCuenta }}
-                </td>
-                <td>
-                  {{ cuenta.saldoContable }}
-                </td>
-                <td>
-                  {{ cuenta.saldoUsable }}
-                </td>
-                <td>
-                  <i (click)="editarTransferencia(cuenta)" class="far fa-edit text-info"></i>
-                </td>
-                <td>
-                  <i (click)="eliminarMovimiento(cuenta.id)" class="far fa-trash-alt text-danger"></i>
-                </td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
     </div>

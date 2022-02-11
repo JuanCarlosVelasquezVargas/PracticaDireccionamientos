@@ -10,7 +10,7 @@ import {TransferenciasService} from "../../services/transferencias.service";
 })
 export class TransferenciasDirectasComponent implements OnInit {
 
-  listaCuentas: any[] = [];
+
   accion = 'Agregar';
   form: FormGroup;
   id: number | undefined;
@@ -21,24 +21,17 @@ export class TransferenciasDirectasComponent implements OnInit {
     this.form = this.fb.group({
       tipoCuenta: ['', Validators.required],
       numeroCuenta: ['', [Validators.required,Validators.maxLength(10), Validators.minLength(8)]],
-      saldoContable: [''],
-      saldoUsable: ['']
+      saldoContable: ['', Validators.required],
+      saldoUsable: ['', Validators.required]
       }
     )
   }
 
   ngOnInit(): void {
-    this.obtenerTransferencias();
+
   }
 
-  obtenerTransferencias(){
-    this._transferenciaServices.getListTransferencias().subscribe(data => {
-      //console.log(data);
-      this.listaCuentas = data;
-    },error => {
-      console.log(error);
-    })
-  }
+
   guardarTransferencias() {
     //console.log(this.form.controls)
 
@@ -53,7 +46,7 @@ export class TransferenciasDirectasComponent implements OnInit {
       //Agregamos una Nueva Transferencia
       this._transferenciaServices.saveTransferencia(transferencia).subscribe(data => {
         this.toastr.success('Transferencia Correcta!', 'Aviso');
-        this.obtenerTransferencias();
+        //this.obtenerTransferencias();
         this.form.reset();
       },error => {
         this.toastr.error('El movimiento no se Pudo Modificar'+error,'Error');
@@ -65,7 +58,7 @@ export class TransferenciasDirectasComponent implements OnInit {
         this.form.reset();
         this.accion='Agregar';
         this.id = undefined;
-        this.obtenerTransferencias();
+        //this.obtenerTransferencias();
         this.toastr.info('Transferencia Correcta!', 'Aviso');
       },error => {
         this.toastr.error('El movimiento no se Pudo Modificar'+error,'Error');
@@ -82,7 +75,7 @@ export class TransferenciasDirectasComponent implements OnInit {
     //this.listaCuentas.splice(index,1);
     this._transferenciaServices.deleteTrasnferencias(id).subscribe(data => {
       this.toastr.success('El movimiento fue eliminado con éxito','Aviso');
-      this.obtenerTransferencias();
+      //this.obtenerTransferencias();
     },error => {
       this.toastr.error('El movimiento no se Pudo Eliminar'+error,'Error');
     })

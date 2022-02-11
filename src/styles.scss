@@ -1,13 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {
-  background: #fffc00; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #ffffff, #fffc00); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #ffffff, #fffc00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #EFEFBB;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #D4D3DD, #EFEFBB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .titulo {
-  font-family: 'Potta One', cursive;
+  font-family: 'Quintessential', cursive;
   text-align: center;
 }
 
@@ -15,5 +15,4 @@ body {
 @import "assets/icons/fontawesome/css/all.min.css";
 /*IMPORTO LOS ESTILOS DE BOOSTRAP EL SIMBOLO ~ NOS QUIERE DECIR QUE TODOS LOS QUE ESTÉN ANTES DE ESTO QUEDAN IMPLICITOS*/
 @import "~bootstrap/scss/bootstrap";
-
 @import '~ngx-toastr/toastr';

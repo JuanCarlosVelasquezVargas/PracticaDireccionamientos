@@ -1,4 +1,4 @@
-<p>saldos-cuenta, directivas</p>
+<!--<p>saldos-cuenta, directivas</p>
 
 <app-card-especial [tittleCardPadre]="'Directivas'"
                    cssClass="card text-black bg-secondary">
@@ -24,6 +24,46 @@
     </div>
   </div>
 
-</app-card-especial>
+</app-card-especial>-->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="titulo">TRANSFERENCIAS DIRECTAS</h3>
+        </div>
+      </div>
+    </div>
+  </div>
 
-
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <table class="table">
+          <tbody>
+          <tr *ngFor="let cuenta of listaCuentas; let i = index">
+            <td>
+              {{ cuenta.tipoCuenta }}
+            </td>
+            <td>
+              {{ cuenta.numeroCuenta }}
+            </td>
+            <td>
+              {{ cuenta.saldoContable }}
+            </td>
+            <td>
+              {{ cuenta.saldoUsable }}
+            </td>
+            <!--<td>
+              <i (click)="editarTransferencia(cuenta)" class="far fa-edit text-info"></i>
+            </td>
+            <td>
+              <i (click)="eliminarMovimiento(cuenta.id)" class="far fa-trash-alt text-danger"></i>
+            </td>-->
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

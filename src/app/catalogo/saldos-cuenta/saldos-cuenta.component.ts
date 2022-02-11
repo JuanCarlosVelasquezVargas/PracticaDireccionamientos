@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder} from "@angular/forms";
+import {ToastrService} from "ngx-toastr";
+import {TransferenciasService} from "../../services/transferencias.service";
 
 @Component({
   selector: 'app-saldos-cuenta',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SaldosCuentaComponent implements OnInit {
 
-  constructor() { }
+  listaCuentas: any[] = [];
+
+  constructor(private fb: FormBuilder,
+              private toastr: ToastrService,
+              private _transferenciaServices: TransferenciasService) { }
 
   ngOnInit(): void {
+    this.obtenerTransferencias();
+  }
+
+  obtenerTransferencias(){
+    this._transferenciaServices.getListTransferencias().subscribe(data => {
+      //console.log(data);
+      this.listaCuentas = data;
+    },error => {
+      console.log(error);
+    })
   }
 
 }
